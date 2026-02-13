@@ -17,14 +17,14 @@
             line-height: 1.7;
         }
         .container {
-            max-width: 820px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 24px 16px;
+            padding: 24px 24px;
         }
         header {
             text-align: center;
-            margin-bottom: 32px;
-            padding-bottom: 20px;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
             border-bottom: 1px solid #21262d;
         }
         header h1 {
@@ -37,9 +37,17 @@
             color: #8b949e;
         }
 
+        /* 2-column grid */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
         /* Weather */
         .weather-section {
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
         .weather-section h2 {
             font-size: 1.1rem;
@@ -85,7 +93,7 @@
             border: 1px solid #30363d;
             border-radius: 8px;
             padding: 20px;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
         .summary h2 {
             font-size: 1.1rem;
@@ -101,19 +109,19 @@
         .data-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 16px;
-            font-size: 0.9rem;
+            margin-bottom: 12px;
+            font-size: 0.88rem;
         }
         .data-table th {
             background-color: #161b22;
             color: #8b949e;
             font-weight: 600;
             text-align: left;
-            padding: 10px 12px;
+            padding: 8px 10px;
             border-bottom: 2px solid #30363d;
         }
         .data-table td {
-            padding: 10px 12px;
+            padding: 8px 10px;
             border-bottom: 1px solid #21262d;
         }
         .data-table tr:hover {
@@ -131,31 +139,41 @@
 
         /* Section */
         .section {
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
-        .section h2 {
-            font-size: 1.15rem;
-            color: #f0f6fc;
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
             padding-bottom: 8px;
             border-bottom: 1px solid #21262d;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
+        }
+        .section-header h2 {
+            font-size: 1.15rem;
+            color: #f0f6fc;
+        }
+        .section-header .fetched-at {
+            font-size: 0.75rem;
+            color: #484f58;
         }
 
         /* Category */
         .category {
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
         .category h2 {
             font-size: 1.15rem;
             color: #f0f6fc;
             padding-bottom: 8px;
             border-bottom: 1px solid #21262d;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
-        .category h3 {
-            font-size: 1.05rem;
+        .category h3.cat-label {
+            font-size: 0.9rem;
             color: #8b949e;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            margin-top: 12px;
         }
 
         /* News items */
@@ -163,12 +181,12 @@
             background-color: #161b22;
             border: 1px solid #30363d;
             border-radius: 6px;
-            padding: 14px 16px;
-            margin-bottom: 10px;
+            padding: 12px 14px;
+            margin-bottom: 8px;
         }
         .news-item h3 {
-            font-size: 0.95rem;
-            margin-bottom: 6px;
+            font-size: 0.92rem;
+            margin-bottom: 4px;
         }
         .news-item h3 a {
             color: #58a6ff;
@@ -178,12 +196,12 @@
             text-decoration: underline;
         }
         .news-item .meta {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: #8b949e;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
         .news-item .digest {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: #b1bac4;
         }
 
@@ -193,17 +211,16 @@
             border: 1px solid #30363d;
             border-left: 3px solid #58a6ff;
             border-radius: 6px;
-            padding: 16px 20px;
-            margin-top: 12px;
-            margin-bottom: 16px;
+            padding: 14px 18px;
+            margin-top: 10px;
         }
         .analysis-box h3 {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: #58a6ff;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .analysis-box p {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: #b1bac4;
         }
 
@@ -221,20 +238,20 @@
 
         /* Archive */
         .archive {
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 32px;
+            padding-top: 16px;
             border-top: 1px solid #21262d;
         }
         .archive h2 {
             font-size: 1.1rem;
             color: #f0f6fc;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .archive ul {
             list-style: none;
-        }
-        .archive li {
-            margin-bottom: 6px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
         }
         .archive a {
             color: #58a6ff;
@@ -246,8 +263,8 @@
         }
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 16px;
+            margin-top: 32px;
+            padding-top: 12px;
             border-top: 1px solid #21262d;
             font-size: 0.8rem;
             color: #484f58;
@@ -259,7 +276,10 @@
             font-size: 0.95rem;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+            }
             .weather-cards {
                 flex-direction: column;
             }
@@ -283,9 +303,9 @@
                 <div class="weather-card">
                     <div class="location">品川区大井町</div>
                     <div class="weather-main">晴れ</div>
-                    <div class="temp">7.1°C</div>
+                    <div class="temp">7.1&deg;C</div>
                     <div class="weather-detail">
-                        最高 9.9°C / 最低 4.3°C<br>
+                        最高 9.9&deg;C / 最低 4.3&deg;C<br>
                         湿度 64% / 風速 7.5m/s<br>
                         降水確率 3%
                     </div>
@@ -294,9 +314,9 @@
                 <div class="weather-card">
                     <div class="location">渋谷区渋谷駅</div>
                     <div class="weather-main">晴れ</div>
-                    <div class="temp">5.1°C</div>
+                    <div class="temp">5.1&deg;C</div>
                     <div class="weather-detail">
-                        最高 10.6°C / 最低 1.2°C<br>
+                        最高 10.6&deg;C / 最低 1.2&deg;C<br>
                         湿度 68% / 風速 5.1m/s<br>
                         降水確率 3%
                     </div>
@@ -310,795 +330,442 @@
         
         <div class="summary">
             <h2>Market Summary</h2>
-            <p>暗号資産市場はBTCが6.5万〜6.8万ドル近辺で方向感に欠け、ETF資金流出や投げ売り（実現損失）の報道が重しとなってリスクオフ基調が続いています。米国ではインフレ指標（CPI）発表待ちで様子見ムードが強く、株式側もAI不安や関税影響、政府機関の予算を巡る不透明感が相場のボラティリティ要因です。一方で、ステーブルコインやブロックチェーン決済の制度・実証、機関向け担保・ステーキングなどのインフラ整備ニュースは中長期の追い風として増えています。国内では政府がステーブルコイン活用の証券決済実証を正式支援し、企業・カンファレンスを通じた実装議論が進展しています。</p>
+            <p>暗号資産はBTCが6.7万ドル台、ETHが2,000ドル手前で小幅安となり、ETF資金流出や投げ売り局面を示すオンチェーン指標が重しとなった。一方で米CPIは市場予想を下回り、インフレ警戒がやや後退するなどマクロ面では下支え材料も出ている。株式側では関税の影響やAI不安、政府機関閉鎖リスクなどが個別銘柄・セクターのボラティリティを高め、リスク資産全体のムードは慎重。日本ではステーブルコイン×証券決済の実証支援など制度・実装面の前進が目立つ。</p>
         </div>
         
 
-        <!-- 4. Stock Market -->
+        <!-- 4 & 5. Stock Market + Crypto Prices (side by side) -->
         
-        <div class="section">
-            <h2>Stock Market</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Index</th>
-                        <th class="text-right">Close</th>
-                        <th class="text-right">Change</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <tr>
-                        <td>日経平均</td>
-                        <td class="text-right">56,941.97</td>
-                        <td class="text-right negative">
-                            -1.21%
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>S&amp;P 500</td>
-                        <td class="text-right">6,832.76</td>
-                        <td class="text-right negative">
-                            -1.57%
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>NASDAQ</td>
-                        <td class="text-right">22,597.15</td>
-                        <td class="text-right negative">
-                            -2.03%
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>ダウ平均</td>
-                        <td class="text-right">49,451.98</td>
-                        <td class="text-right negative">
-                            -1.34%
-                        </td>
-                    </tr>
-                    
-                </tbody>
-            </table>
+        <div class="grid-2col">
+            
+            <div class="section">
+                <div class="section-header">
+                    <h2>Stock Market</h2>
+                    <span class="fetched-at">2026-02-13 22:42 JST 時点</span>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Index</th>
+                            <th class="text-right">Close</th>
+                            <th class="text-right">Change</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>日経平均</td>
+                            <td class="text-right">56,941.97</td>
+                            <td class="text-right negative">
+                                -1.21%
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>S&amp;P 500</td>
+                            <td class="text-right">6,832.76</td>
+                            <td class="text-right negative">
+                                -1.57%
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>NASDAQ</td>
+                            <td class="text-right">22,597.15</td>
+                            <td class="text-right negative">
+                                -2.03%
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>ダウ平均</td>
+                            <td class="text-right">49,451.98</td>
+                            <td class="text-right negative">
+                                -1.34%
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            
 
             
-            
-            <div class="news-item">
-                <h3>米1月CPI発表控え、インフレ鈍化の有無に注目</h3>
-                <div class="meta">CNBC</div>
-                <div class="digest">雇用指標の改善に続きCPI結果が株式・金利の方向性を左右する見通し。</div>
-            </div>
-            
-            <div class="news-item">
-                <h3>関税影響で広告費が鈍化、Pinterestが急落</h3>
-                <div class="meta">CNBC</div>
-                <div class="digest">主要小売の広告抑制が収益に響き、株価が時間外で大きく下落。</div>
-            </div>
-            
-            <div class="news-item">
-                <h3>AI不安で景気敏感株も軟調、売りが波及</h3>
-                <div class="meta">CNBC</div>
-                <div class="digest">AIによる需要見通し悪化懸念からトラック輸送・不動産などが売られやすい展開。</div>
-            </div>
-            
-            <div class="news-item">
-                <h3>トランプ関税で米通関保証の資金不足が拡大</h3>
-                <div class="meta">CNBC</div>
-                <div class="digest">関税負担増で税関ボンドの不足が記録的水準となり輸入業者の資金繰りリスクに。</div>
-            </div>
-            
-            <div class="news-item">
-                <h3>米国土安保省の閉鎖リスク、政治不確実性が上乗せ</h3>
-                <div class="meta">CNBC</div>
-                <div class="digest">つなぎ予算合意が難航し、週末にかけて政府閉鎖リスクが意識される。</div>
-            </div>
-            
-            
-        </div>
-        
-
-        <!-- 5. Crypto Prices -->
-        
-        <div class="section">
-            <h2>Crypto Prices</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Currency</th>
-                        <th class="text-right">USD</th>
-                        <th class="text-right">JPY</th>
-                        <th class="text-right">24h</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <tr>
-                        <td>BTC</td>
-                        <td class="text-right">$67,334.00</td>
-                        <td class="text-right">¥10,321,605</td>
-                        <td class="text-right negative">
-                            -0.61%
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>ETH</td>
-                        <td class="text-right">$1,970.05</td>
-                        <td class="text-right">¥301,987</td>
-                        <td class="text-right negative">
-                            -0.46%
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>XRP</td>
-                        <td class="text-right">$1.37</td>
-                        <td class="text-right">¥211</td>
-                        <td class="text-right negative">
-                            -1.27%
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>SOL</td>
-                        <td class="text-right">$80.30</td>
-                        <td class="text-right">¥12,309</td>
-                        <td class="text-right negative">
-                            -0.93%
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>BNB</td>
-                        <td class="text-right">$600.75</td>
-                        <td class="text-right">¥92,089</td>
-                        <td class="text-right negative">
-                            -2.08%
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>ADA</td>
-                        <td class="text-right">$0.26</td>
-                        <td class="text-right">¥41</td>
-                        <td class="text-right negative">
-                            -0.28%
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>DOGE</td>
-                        <td class="text-right">$0.09</td>
-                        <td class="text-right">¥14</td>
-                        <td class="text-right positive">
-                            +0.19%
-                        </td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-
-            
-            <div class="analysis-box">
-                <h3>Price Impact Analysis</h3>
-                <p>BTCは-0.61%と小幅安だが、ETF資金流出継続（D27）や投げ売り・実現損失の拡大（D19/D29）、下値警戒の相場観（I30/I39）が買い戻しを抑えています。加えて米CPI待ち（I13、S1）でリスクを取りにくく、株安連動の下押し（I20/I27）も意識されやすい局面です。ETHは-0.46%と相対的に底堅い一方、下落見通し（I30）と「ETHトレジャリー」議論（D1/I22）が交錯し、材料はあるがマクロ主導で伸び悩んでいます。BNBが-2.08%と弱いのは、BinanceがSAFUをBTCへ転換（D25/D33）してBTC比重を高めたことも含め、交換・準備資産の再配分観測が心理面の重しになり得ます。</p>
+            <div class="section">
+                <div class="section-header">
+                    <h2>Crypto Prices</h2>
+                    <span class="fetched-at">2026-02-13 22:42 JST 時点</span>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Currency</th>
+                            <th class="text-right">USD</th>
+                            <th class="text-right">JPY</th>
+                            <th class="text-right">24h</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>BTC</td>
+                            <td class="text-right">$67,273.00</td>
+                            <td class="text-right">&yen;10,300,044</td>
+                            <td class="text-right negative">
+                                -0.97%
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>ETH</td>
+                            <td class="text-right">$1,969.44</td>
+                            <td class="text-right">&yen;301,538</td>
+                            <td class="text-right negative">
+                                -0.85%
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>XRP</td>
+                            <td class="text-right">$1.38</td>
+                            <td class="text-right">&yen;211</td>
+                            <td class="text-right negative">
+                                -1.5%
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>SOL</td>
+                            <td class="text-right">$80.33</td>
+                            <td class="text-right">&yen;12,299</td>
+                            <td class="text-right negative">
+                                -1.22%
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>BNB</td>
+                            <td class="text-right">$600.15</td>
+                            <td class="text-right">&yen;91,887</td>
+                            <td class="text-right negative">
+                                -2.65%
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>ADA</td>
+                            <td class="text-right">$0.26</td>
+                            <td class="text-right">&yen;40</td>
+                            <td class="text-right negative">
+                                -0.67%
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>DOGE</td>
+                            <td class="text-right">$0.09</td>
+                            <td class="text-right">&yen;14</td>
+                            <td class="text-right negative">
+                                -0.53%
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
             </div>
             
         </div>
         
 
-        <!-- 6. Domestic Crypto News -->
+        <!-- Stock news + Price analysis (side by side) -->
         
-        
-        <div class="category">
-            <h2>Crypto News<span class="region-label">Domestic</span></h2>
+        <div class="grid-2col">
             
-                
-                <h3>市場動向</h3>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=689058" target="_blank" rel="noopener">ビッグテック100兆円投資、ビットコインマイナーはAIスーパーサイクルを掴めるか</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">ビッグテックの巨額AI投資を背景に、BTCマイナーがAIデータセンターへ転換し収益源多角化を模索。</div>
+            <div class="section">
+                <div class="section-header">
+                    <h2>Stock News</h2>
                 </div>
                 
                 <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=689011" target="_blank" rel="noopener">「ビットコインからプライバシー銘柄に5～10％流入」DCG創設者が予想</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">DCG創設者が「BTC資金の5〜10%がプライバシー銘柄へ移る」と予想しZcashに期待を示す。</div>
+                    <h3>米CPIが予想を下回りインフレ懸念が一服</h3>
+                    <div class="meta">CNBC</div>
+                    <div class="digest">1月CPIは前年比2.4%と市場予想（2.5%）を下回り、利下げ/金融環境への警戒をやや緩和。</div>
                 </div>
                 
                 <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=688947" target="_blank" rel="noopener">13ヶ国政府がビットコインマイニングを実施、ヴァンエック報告</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">ヴァンエック報告で13カ国政府が国家プロジェクトとしてBTCマイニングに従事している実態を紹介。</div>
+                    <h3>関税が広告需要を直撃しPinterest急落</h3>
+                    <div class="meta">CNBC</div>
+                    <div class="digest">関税の影響で主要小売が広告費を抑制し、Pinterest株は時間外で大幅安。</div>
                 </div>
                 
                 <div class="news-item">
-                    <h3><a href="https://www.nadanews.com/336957/" target="_blank" rel="noopener">Glassnode、ビットコイン市場の構造的脆弱性を指摘</a></h3>
-                    <div class="meta">NADA NEWS</div>
-                    <div class="digest">Glassnodeがビットコイン市場の構造的脆弱性を指摘し、重要水準回復の必要性を示唆。</div>
+                    <h3>米DHS閉鎖が現実味、政治リスクが市場の不確実性に</h3>
+                    <div class="meta">CNBC</div>
+                    <div class="digest">民主党とホワイトハウスの合意難航で国土安全保障省の閉鎖が濃厚となり、リスクセンチメントの重し。</div>
                 </div>
                 
-                <div class="news-item">
-                    <h3><a href="https://www.nadanews.com/336945/" target="_blank" rel="noopener">ビットコイン、2021年以来最大級の投げ売り──23億ドルの損失を記録</a></h3>
-                    <div class="meta">NADA NEWS</div>
-                    <div class="digest">CryptoQuantデータで2021年以来最大級の投げ売り局面とされ、実現損失が約23億ドルに達した可能性。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.nadanews.com/336910/" target="_blank" rel="noopener">マトリックス法によるテクニカル分析（2026/2/13）デッド・キャット・バウンス気味だが、まだ勝負はついてない【楽天ウォレット】</a></h3>
-                    <div class="meta">NADA NEWS</div>
-                    <div class="digest">楽天ウォレットがテクニカル分析で「デッドキャットバウンス気味だが勝負は未決」と解説。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://jp.cointelegraph.com/news/bitcoin-etf-410-million-outflows-standard-chartered-cut-target?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">米国のビットコインETF、4週連続流出の公算　スタンダード・チャータードが2026年のBTC価格予想を下方修正</a></h3>
-                    <div class="meta">COINTELEGRAPH Japan</div>
-                    <div class="digest">米現物BTC ETFの流出が4週連続となる公算で、スタンダード・チャータードが2026年価格予想を下方修正。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://jp.cointelegraph.com/news/bitcoin-suffers-losses-rivaling-2021-crash-as-capitulation-continues?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">ビットコイン 実現損失が23億ドルに　2021年の暴落時に匹敵する水準</a></h3>
-                    <div class="meta">COINTELEGRAPH Japan</div>
-                    <div class="digest">BTCの実現損失が23億ドルに達し、2021年暴落級の投げ売り局面との分析。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://jp.cointelegraph.com/news/bitcoin-in-capitulation-zone-as-traders-debate-when-btc-price-will-bottom?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">ビットコイン売り再燃　4万ドルまで下落との分析も　底打ちは2026年第4四半期か</a></h3>
-                    <div class="meta">COINTELEGRAPH Japan</div>
-                    <div class="digest">BTC売り再燃で4万ドルまで下落余地との声もあり、底打ちが2026年後半までずれる可能性を指摘。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://jp.cointelegraph.com/news/bitcoin-analysts-predict-prolonged-consolidation-phase-for-btc-price?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">ビットコイン、重要サポートまで回復できなければ長期保ち合いへ＝グラスノード分析</a></h3>
-                    <div class="meta">COINTELEGRAPH Japan</div>
-                    <div class="digest">Glassnodeは主要サポートを回復できなければBTCが長期レンジ相場に入る可能性が高いと分析。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://jp.cointelegraph.com/news/bitcoin-may-close-week-at-68-3k-to-avoid-bearish-acceleration-analyst?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">ビットコイン、強気維持には週終値6万8300ドルが必須　「弱気加速」回避へアナリスト警鐘</a></h3>
-                    <div class="meta">COINTELEGRAPH Japan</div>
-                    <div class="digest">強気維持には週終値6万8300ドルが重要とされ、割れれば弱気加速の懸念が示された。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://jp.cointelegraph.com/news/miner-outflows-spike-public-miners-steady-january?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">ビットコインマイナーの流出量、1月に急増も上場企業の売却は限定的</a></h3>
-                    <div class="meta">COINTELEGRAPH Japan</div>
-                    <div class="digest">1月にマイナー流出が増えた一方、上場マイナーの大規模売却は限定的とのオンチェーン分析。</div>
-                </div>
-                
-                
+            </div>
             
-                
-                <h3>規制・政策</h3>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=689068" target="_blank" rel="noopener">片山大臣、ブロックチェーン証券決済の実証実験の正式支援を発表　ステーブルコイン活用で競争力強化へ</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">片山大臣がブロックチェーン＋ステーブルコインによる証券決済実証を政府として正式支援すると表明。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=689004" target="_blank" rel="noopener">米銀行協会が指摘、通貨監督庁の仮想通貨銀行認可に透明性不足</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">米銀行協会がOCCに対し、仮想通貨銀行認可の透明性不足を指摘し規制整備を優先するよう要求。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.nadanews.com/336924/" target="_blank" rel="noopener">米CFTC、イノベーション諮問委員に暗号資産業界幹部を多数任命</a></h3>
-                    <div class="meta">NADA NEWS</div>
-                    <div class="digest">米CFTCがイノベーション諮問委員に暗号資産業界幹部を多数任命し市場構造議論を加速。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.nadanews.com/336918/" target="_blank" rel="noopener">片山さつき大臣、「3メガ×大手証券」実証の正式支援を発表──ステーブルコインで株決済「画期的」</a></h3>
-                    <div class="meta">NADA NEWS</div>
-                    <div class="digest">片山大臣が「3メガ×大手証券」の証券決済実証を正式支援し、ステーブルコイン活用を画期的と強調。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://jp.cointelegraph.com/news/crypto-use-in-human-trafficking-networks-surged-in-2025-chainalysis?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">人身売買関連ネットワークへの仮想通貨流入、2025年に85％増加＝チェイナリシス分析</a></h3>
-                    <div class="meta">COINTELEGRAPH Japan</div>
-                    <div class="digest">Chainalysis分析で人身売買関連ネットワークへの暗号資産流入が2025年に85%増加と報告。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://jp.cointelegraph.com/news/bankers-push-occ-slow-crypto-trust-bank-charters?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">米銀行業界、GENIUS規則明確化まで仮想通貨信託認可の減速をOCCに要求</a></h3>
-                    <div class="meta">COINTELEGRAPH Japan</div>
-                    <div class="digest">米銀行業界が、ステーブルコイン規則明確化（GENIUS等）までOCCの信託認可ペース抑制を要請。</div>
-                </div>
-                
-                
+
             
-                
-                <h3>プロジェクト・技術</h3>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=689105" target="_blank" rel="noopener">墨汁うまい氏、ETHトレジャリー企業のWin-Win構造を解説　BTCとの本質的違いを指摘｜Ethereum Shift</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">「ETHトレジャリー企業」のWin-Win構造とBTCとの本質的違いを解説し、ETHは割安との見方も提示。</div>
+            <div class="section">
+                <div class="analysis-box">
+                    <h3>Price Impact Analysis</h3>
+                    <p>BTCは-0.97%と軟調で、米国現物BTC ETFの資金流出（D27/I36）や実現損失拡大・投げ売り示唆（D19/D29）が需給面の重しとなっている。加えてスタンダード・チャータードの弱気シナリオ（BTC$50k、ETH$1,400：I30/I53）がセンチメントを冷やし、ETH（-0.85%）も上値が抑えられやすい。一方、米CPIが予想を下回った（S1）ことでリスク資産全体の下落圧力は一部緩和され、急落というよりは戻りの鈍いレンジ相場になりやすい。</p>
                 </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=689001" target="_blank" rel="noopener">「スローガンより規則を」ENI創業者兼CEOのアリオン・ホー氏がDeFi分散化を語る</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">DeFi分散化は投票ではなく単一制御点の有無が本質で、検証可能なルール設計が重要と指摘。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=688967" target="_blank" rel="noopener">Soneiumで推し活を資産化へ、ソニー系ファンド、YOAKEに5億円追加出資</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">ソニー系ファンドがYOAKEに約5億円追加出資し、Soneium基盤で「推し活」の資産化体験を加速。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.nadanews.com/336825/" target="_blank" rel="noopener">ソラナ、香港「Accelerate APAC」でトークン化と決済に軸足</a></h3>
-                    <div class="meta">NADA NEWS</div>
-                    <div class="digest">ソラナは香港イベントでトークン化と決済を軸に、アジアの24時間稼働インフラとしての位置付けを強調。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://jp.cointelegraph.com/news/fiserv-settlement-digital-asset-companies?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">ファイサーブ、仮想通貨企業向けにドルのリアルタイム決済網を構築</a></h3>
-                    <div class="meta">COINTELEGRAPH Japan</div>
-                    <div class="digest">ファイサーブが暗号資産企業向けにドルの24/365リアルタイム決済網を構築し、資金移動摩擦の低減を狙う。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://jp.cointelegraph.com/news/trump-wlfi-foreign-exchange-remittance?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">トランプ家のWLFI、為替・送金プラットフォーム「ワールド・スワップ」計画を公表</a></h3>
-                    <div class="meta">COINTELEGRAPH Japan</div>
-                    <div class="digest">トランプ家のWLFIが為替・送金プラットフォーム「ワールド・スワップ」計画を公表しFX市場シェア獲得を狙う。</div>
-                </div>
-                
-                
-            
-                
-                <h3>取引所・サービス</h3>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=688952" target="_blank" rel="noopener">米上場コインチェックグループ10-12月期決算報告、黒字転換</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">米上場コインチェックグループが10-12月期に純利益4億円で黒字転換し、B2B戦略を加速へ。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=688958" target="_blank" rel="noopener">コインベースCEO、自社株を9カ月間で158.5万株売却か</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">コインベースCEOが9カ月で自社株158.5万株売却の可能性が示され、投資家の警戒材料に。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.nadanews.com/336953/" target="_blank" rel="noopener">SBI、シンガポール暗号資産取引所「Coinhako」買収へ</a></h3>
-                    <div class="meta">NADA NEWS</div>
-                    <div class="digest">SBIがシンガポール取引所Coinhakoの買収に動き、海外暗号資産事業の拡大を図る。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.nadanews.com/336908/" target="_blank" rel="noopener">Franklin TempletonとBinance、機関投資家向け取引所外担保プログラムを開始</a></h3>
-                    <div class="meta">NADA NEWS</div>
-                    <div class="digest">Franklin TempletonとBinanceが機関投資家向けの取引所外担保プログラムを開始し安全性と資本効率を改善。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.nadanews.com/336833/" target="_blank" rel="noopener">Binance、ユーザー資産保護基金10億ドルのビットコイン転換を完了</a></h3>
-                    <div class="meta">NADA NEWS</div>
-                    <div class="digest">Binanceがユーザー資産保護基金SAFUの10億ドル相当をBTCへ転換し、中核準備資産として位置付け。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://jp.cointelegraph.com/news/coinbase-667m-loss-q4-earnings-miss-crypto-market-crash?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">仮想通貨取引所コインベース、2025年第4四半期に6億6700万ドルの赤字　8四半期連続黒字がストップ</a></h3>
-                    <div class="meta">COINTELEGRAPH Japan</div>
-                    <div class="digest">コインベースは2025年Q4に最終赤字6.67億ドルを計上し、8四半期連続黒字が途切れた。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://jp.cointelegraph.com/news/binance-completes-1b-bitcoin-safu-conversion?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">バイナンスのユーザー保護基金SAFU、10億ドル分をビットコインへ転換完了　中核準備資産に</a></h3>
-                    <div class="meta">COINTELEGRAPH Japan</div>
-                    <div class="digest">バイナンスがSAFUのBTC転換完了を公表し、準備資産としてBTC重視を明確化。</div>
-                </div>
-                
-                
-            
-                
-                <h3>その他</h3>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=688105" target="_blank" rel="noopener">次世代カンファレンス「MoneyX 2026」の後援にブロックチェーン推進協会(BCCC)が決定</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">次世代金融カンファレンス「MoneyX 2026」の後援にBCCCが決定し、ステーブルコイン実装を産官学で議論。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=686432" target="_blank" rel="noopener">次世代カンファレンス「MoneyX 2026」の後援に一般社団法人 日本ブロックチェーン協会（JBA）が決定</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">「MoneyX 2026」の後援にJBAが決定し、次世代金融の論点整理と議論の場を提供。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=688030" target="_blank" rel="noopener">シンプレクス株式会社、次世代カンファレンス「MoneyX 2026」のゴールドスポンサーに決定</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">シンプレクスが「MoneyX 2026」ゴールドスポンサーに決定し、金融DX/web3支援の立場から参画。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=686794" target="_blank" rel="noopener">ビジネスカンファレンス「WEB300 Conference」開催、トヨタ会長や楽天創業者らが登壇</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">完全招待制「WEB300 Conference」でトヨタ会長や楽天創業者らがAI時代の経営戦略を議論。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=688991" target="_blank" rel="noopener">Hashed、次世代カンファレンス「MoneyX 2026」のゴールドスポンサーに決定</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">Hashedが「MoneyX 2026」ゴールドスポンサーに決定し、イベント支援を拡充。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://coinpost.jp/?p=688995" target="_blank" rel="noopener">株式会社イオレ、次世代カンファレンス「MoneyX 2026」のプラチナスポンサーに決定</a></h3>
-                    <div class="meta">CoinPost</div>
-                    <div class="digest">株式会社イオレが「MoneyX 2026」プラチナスポンサーに決定し、次世代金融の議論を後押し。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.nadanews.com/336904/" target="_blank" rel="noopener">リミックスポイント、暗号資産評価損10億円で赤字転落</a></h3>
-                    <div class="meta">NADA NEWS</div>
-                    <div class="digest">リミックスポイントが暗号資産評価損約10億円を計上し、累計で赤字転落と発表。</div>
-                </div>
-                
-                
+            </div>
             
         </div>
         
 
-        <!-- 7. International Crypto News -->
+        <!-- 6 & 7. Domestic + International Crypto News (side by side) -->
         
         
-        <div class="category">
-            <h2>Crypto News<span class="region-label">International</span></h2>
+
+        
+        <div class="grid-2col">
             
+            <div class="category">
+                <h2>Crypto News<span class="region-label">国内</span></h2>
                 
-                <h3>市場動向</h3>
+                    
+                    <h3 class="cat-label">市場動向</h3>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://www.nadanews.com/336957/" target="_blank" rel="noopener">Glassnode、ビットコイン市場の構造的脆弱性を指摘</a></h3>
+                        <div class="meta">NADA NEWS</div>
+                        <div class="digest">BTCはETF流出や実現損失23億ドル級の投げ売り観測、重要サポート未回復でレンジ/下押し警戒が強まる。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://coinpost.jp/?p=689058" target="_blank" rel="noopener">ビッグテック100兆円投資、ビットコインマイナーはAIスーパーサイクルを掴めるか</a></h3>
+                        <div class="meta">CoinPost</div>
+                        <div class="digest">マイナーは収益悪化を背景にAIデータセンター転換が進む一方、国家主導マイニング拡大やマイナー大口移動も話題に。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://coinpost.jp/?p=689011" target="_blank" rel="noopener">「ビットコインからプライバシー銘柄に5～10％流入」DCG創設者が予想</a></h3>
+                        <div class="meta">CoinPost</div>
+                        <div class="digest">BTC資金の一部がプライバシー銘柄へ流入する見立てが出る中、国内関連企業では暗号資産評価損で業績悪化も報じられた。</div>
+                    </div>
+                    
+                    
                 
-                <div class="news-item">
-                    <h3><a href="https://news.bitcoin.com/bitcoin-coils-tight-in-65k-68k-range-next-move-could-shake-the-market/" target="_blank" rel="noopener">Bitcoin Coils Tight in $65K–$68K Range — Next Move Could Shake the Market</a></h3>
-                    <div class="meta">Bitcoin.com News</div>
-                    <div class="digest">BTCは6.5万〜6.8万ドルの狭いレンジで推移し、次の大きな値動きが近い可能性を示唆。</div>
-                </div>
+                    
+                    <h3 class="cat-label">規制・政策</h3>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://coinpost.jp/?p=689068" target="_blank" rel="noopener">片山大臣、ブロックチェーン証券決済の実証実験の正式支援を発表　ステーブルコイン活用で競争力強化へ</a></h3>
+                        <div class="meta">CoinPost</div>
+                        <div class="digest">片山大臣がステーブルコイン等を用いたブロックチェーン証券決済（3メガ×大手証券）の実証を正式支援と表明。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://coinpost.jp/?p=689004" target="_blank" rel="noopener">米銀行協会が指摘、通貨監督庁の仮想通貨銀行認可に透明性不足</a></h3>
+                        <div class="meta">CoinPost</div>
+                        <div class="digest">米銀行協会がOCCの暗号資産銀行認可の透明性不足を指摘し、ステーブルコイン規則明確化まで認可減速を要請。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://www.nadanews.com/336924/" target="_blank" rel="noopener">米CFTC、イノベーション諮問委員に暗号資産業界幹部を多数任命</a></h3>
+                        <div class="meta">NADA NEWS</div>
+                        <div class="digest">米CFTCがイノベーション諮問委員に暗号資産業界幹部を多数任命し、市場制度設計の議論が前進。</div>
+                    </div>
+                    
+                    
                 
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/daybook-us/2026/02/13/crypto-market-wobbles-as-investors-ignore-good-news-look-for-the-exit-ramp" target="_blank" rel="noopener">Crypto market wobbles as investors ignore good news, look for ‘exit ramp’</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">好材料が出ても市場が反応しにくく、投資家が「出口」を探しているとして相場の脆さを指摘。</div>
-                </div>
+                    
+                    <h3 class="cat-label">プロジェクト・技術</h3>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://coinpost.jp/?p=689105" target="_blank" rel="noopener">墨汁うまい氏、ETHトレジャリー企業のWin-Win構造を解説　BTCとの本質的違いを指摘｜Ethereum Shift</a></h3>
+                        <div class="meta">CoinPost</div>
+                        <div class="digest">イベント登壇でETHトレジャリー企業の収益構造（ステーキング等）とBTCとの本質的差異、長期ビジョンが解説された。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://coinpost.jp/?p=689001" target="_blank" rel="noopener">「スローガンより規則を」ENI創業者兼CEOのアリオン・ホー氏がDeFi分散化を語る</a></h3>
+                        <div class="meta">CoinPost</div>
+                        <div class="digest">DeFiの分散化は投票有無ではなく単一制御点の排除が本質であり、「検証可能なルール」の重要性が強調された。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://coinpost.jp/?p=688967" target="_blank" rel="noopener">Soneiumで推し活を資産化へ、ソニー系ファンド、YOAKEに5億円追加出資</a></h3>
+                        <div class="meta">CoinPost</div>
+                        <div class="digest">Soneium基盤の推し活資産化（YOAKE追加出資）や、ソラナのトークン化/決済志向、WLFIの送金・FX構想など実装系の動きが拡大。</div>
+                    </div>
+                    
+                    
                 
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/markets/2026/02/13/ark-invest-buys-usd18-million-of-crypto-stocks-including-10th-consecutive-bullish-purchase" target="_blank" rel="noopener">Ark Invest buys $18 million of crypto stocks including 10th consecutive Bullish purchase</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">Ark Investが暗号資産関連株を約1800万ドル買い増し、Bullish株は10日連続購入と報道。</div>
-                </div>
+                    
+                    <h3 class="cat-label">取引所・サービス</h3>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://www.nadanews.com/336953/" target="_blank" rel="noopener">SBI、シンガポール暗号資産取引所「Coinhako」買収へ</a></h3>
+                        <div class="meta">NADA NEWS</div>
+                        <div class="digest">SBIがシンガポール取引所Coinhakoの買収を検討し、海外拠点・顧客基盤の取り込みを狙う。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://coinpost.jp/?p=688952" target="_blank" rel="noopener">米上場コインチェックグループ10-12月期決算報告、黒字転換</a></h3>
+                        <div class="meta">CoinPost</div>
+                        <div class="digest">国内のコインチェックは黒字転換の一方、米コインベースは四半期赤字やCEOの株売却報道でセンチメント悪化。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://www.nadanews.com/336908/" target="_blank" rel="noopener">Franklin TempletonとBinance、機関投資家向け取引所外担保プログラムを開始</a></h3>
+                        <div class="meta">NADA NEWS</div>
+                        <div class="digest">BinanceはSAFU基金のBTC転換完了、Franklin Templetonと取引所外担保、Fiservの24/365決済などインフラ強化が進む。</div>
+                    </div>
+                    
+                    
                 
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/markets/2026/02/13/bitcoin-ether-little-changed-before-u-s-inflation-report" target="_blank" rel="noopener">Bitcoin, ether little changed before U.S. inflation report</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">米インフレ指標発表を控え、BTCとETHは小動きで様子見が優勢。</div>
-                </div>
+                    
+                    <h3 class="cat-label">その他</h3>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://coinpost.jp/?p=688105" target="_blank" rel="noopener">次世代カンファレンス「MoneyX 2026」の後援にブロックチェーン推進協会(BCCC)が決定</a></h3>
+                        <div class="meta">CoinPost</div>
+                        <div class="digest">次世代金融カンファレンス「MoneyX 2026」で後援・スポンサー参画（BCCC/JBA/シンプレクス/Hashed/イオレ）が相次いだ。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://coinpost.jp/?p=686794" target="_blank" rel="noopener">ビジネスカンファレンス「WEB300 Conference」開催、トヨタ会長や楽天創業者らが登壇</a></h3>
+                        <div class="meta">CoinPost</div>
+                        <div class="digest">完全招待制の「WEB300 Conference」でAI時代の経営戦略が議論され、産業側の関心の高さが示された。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://jp.cointelegraph.com/news/crypto-use-in-human-trafficking-networks-surged-in-2025-chainalysis?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">人身売買関連ネットワークへの仮想通貨流入、2025年に85％増加＝チェイナリシス分析</a></h3>
+                        <div class="meta">COINTELEGRAPH Japan</div>
+                        <div class="digest">チェイナリシス分析として、人身売買関連ネットワークへの暗号資産流入が2025年に85%増と報告された。</div>
+                    </div>
+                    
+                    
                 
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/markets/2026/02/13/bitcoin-s-long-term-rally-is-broken-until-it-reclaims-usd85-000-deribit-executive-says" target="_blank" rel="noopener">Bitcoin’s long-term rally is ‘broken’ until it reclaims $85,000, Deribit executive says</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">Deribit幹部はBTCが8.5万ドルを回復するまで長期ラリーは「壊れている」との見方を示す。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/markets/2026/02/12/bitcoin-tumbles-back-near-last-week-s-lows-as-ai-fears-crush-tech-and-precious-metals-plunge" target="_blank" rel="noopener">Bitcoin tumbles back near last week&#39;s lows as AI fears crush tech and precious metals plunge</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">AI不安で米株が下落する中、BTCも先週安値付近へ急落しリスクオフ連動が強まった。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/markets/2026/02/12/ark-invest-s-cathie-wood-says-bitcoin-will-thrive-amid-deflationary-chaos-created-by-ai-and-innovation" target="_blank" rel="noopener">Ark Invest&#39;s Cathie Wood says bitcoin will thrive amid ‘deflationary chaos’ created by AI and innovation</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">キャシー・ウッド氏はAIが生む「デフレ的混乱」の中でビットコインが恩恵を受けると主張。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/markets/2026/02/12/bitcoin-sinks-below-usd67-000-with-crypto-prices-following-u-s-stocks-lower" target="_blank" rel="noopener">Bitcoin sinks below $66,000 as crypto prices follow U.S. stocks lower</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">米株安に追随しBTCが6.6万ドル台へ下落、暗号資産全体が軟調。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/markets/2026/02/12/standard-chartered-sees-bitcoin-sliding-to-usd50-000-ether-to-usd1-400-before-recovery" target="_blank" rel="noopener">Standard Chartered sees bitcoin sliding to $50,000, ether to $1,400 before recovery</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">スタンダード・チャータードがBTCは一度5万ドル、ETHは1400ドルまで下落後に回復するシナリオを提示。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357992/bitcoin-signals-turning-point-no-clear-bottom-yet-experts" target="_blank" rel="noopener">Bitcoin Signals Turning Point—But No Clear Bottom Yet, Experts Say</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">転換点の兆しはあるが、過去サイクル底に比べ指標が未達で明確な底打ちは見えないとの見立て。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357910/myriad-moves-bitcoin-traders-expect-dump-55k" target="_blank" rel="noopener">Myriad Moves: Bitcoin Traders Expect a Dump to $55K Amid Latest Slide</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">予測市場ではBTCが5.5万ドル付近まで下落する見方が強まり、センチメント悪化を示す。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357902/bitcoin-treasuries-added-3-5-billion-january-strategy" target="_blank" rel="noopener">Bitcoin Treasuries Added $3.5 Billion in January—Almost All By Strategy</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">1月のビットコイン・トレジャリー増加は35億ドル規模で、増分の大半がStrategyによるものと報道。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357858/bitcoin-50k-ethereum-1400-before-rebound-standard-chartered" target="_blank" rel="noopener">Bitcoin Will Fall to $50K and Ethereum Will Hit $1,400 Before Rebound: Standard Chartered</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">スタンダード・チャータードは短期下落を見込みつつ、2026年末にBTC10万ドル・ETH4000ドル到達を予想。</div>
-                </div>
-                
-                
+            </div>
             
-                
-                <h3>規制・政策</h3>
-                
-                <div class="news-item">
-                    <h3><a href="https://news.bitcoin.com/banks-beat-payment-providers-in-argentina-labor-reform-bans-payments-to-digital-wallets/" target="_blank" rel="noopener">Banks Beat Payment Providers in Argentina: Labor Reform Bans Payments to Digital Wallets</a></h3>
-                    <div class="meta">Bitcoin.com News</div>
-                    <div class="digest">アルゼンチンの労働法改革で、賃金のデジタルウォレット受け取り案が銀行側の圧力で除外された。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://news.bitcoin.com/strategic-bitcoin-reserve-bill-allowing-brazil-to-acquire-up-to-1-million-btc-reintroduced-in-congress/" target="_blank" rel="noopener">Strategic Bitcoin Reserve Bill Allowing Brazil to Acquire up to 1 Million BTC Reintroduced in Congress</a></h3>
-                    <div class="meta">Bitcoin.com News</div>
-                    <div class="digest">ブラジルで最大100万BTC取得を可能にする「戦略的ビットコイン準備金」法案が再提出された。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/policy/2026/02/13/pgi-global-ceo-gets-20-years-sentence-over-usd200-million-bitcoin-ponzi-scheme" target="_blank" rel="noopener">PGI Global CEO handed 20-year sentence for $200 million bitcoin, forex Ponzi scheme</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">ビットコイン/FXの約2億ドル規模ポンジ事件でPGI Global CEOに懲役20年判決。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/policy/2026/02/12/crypto-execs-armstrong-garlinghouse-among-many-named-to-u-s-cftc-advisory-group" target="_blank" rel="noopener">Crypto execs Armstrong, Garlinghouse among many named to U.S. CFTC advisory group</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">米CFTCの諮問グループにアームストロング氏やガーリングハウス氏ら暗号資産幹部が参加。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/policy/2026/02/12/crypto-pac-fairshake-seeks-to-force-resistant-texas-democrat-al-green-from-u-s-house" target="_blank" rel="noopener">Crypto PAC Fairshake seeks to force resistant Texas Democrat Al Green from U.S. House</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">暗号資産PAC「Fairshake」が反対的な現職議員の排除を狙い、政治面での影響力強化を進める。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/policy/2026/02/12/key-senate-democrat-wants-u-s-crypto-bill-to-move-and-sec-chief-reveals-danger-of-defeat" target="_blank" rel="noopener">Key Senate Democrat wants U.S. crypto bill to move, and SEC chief reveals danger of defeat</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">米上院民主党の要職が暗号資産法案前進を求め、SECトップは法案不成立のリスクにも言及。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/358000/kalshi-taps-sports-insurance-market-with-game-point-capital-deal-as-regulatory-battles-mount" target="_blank" rel="noopener">Kalshi Taps Sports Insurance Market With Game Point Capital Deal as Regulatory Battles Mount</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">予測市場Kalshiがスポーツ保険領域に拡大する一方、規制当局との法的攻防が続く。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357994/valentines-day-alert-romance-scams" target="_blank" rel="noopener">US Prosecutors Warn of Crypto-Linked Romance Scams Ahead of Valentine’s Day</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">米検察がバレンタイン前に、暗号資産が絡むロマンス詐欺（豚屠殺型）への警戒を呼びかけ。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357978/cftc-crypto-heavyweights-advisory-panel-fight-over-market-structure" target="_blank" rel="noopener">CFTC Brings Crypto Heavyweights Onto Advisory Panel Amid Fight Over Market Structure</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">CFTCが暗号資産大手を諮問委に迎え、市場構造ルールを巡る議論が本格化。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357966/crypto-flows-suspected-human-trafficking-services-chainalysis" target="_blank" rel="noopener">Crypto Flows to Suspected Human Trafficking Services Jump 85% in 2025: Chainalysis</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">Chainalysisが人身売買関連の疑い先への暗号資産フロー増加を報告し、取締り・規制議論を促す。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357931/sec-chair-prediction-markets-jurisdiction" target="_blank" rel="noopener">SEC Chair Suggests Some Prediction Markets Could Fall Under Agency’s Jurisdiction</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">SEC委員長が予測市場の一部は同庁の監督対象になり得ると示唆し、管轄整理が焦点に。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357892/israelis-arrested-alleged-insider-polymarket-trades-idf-military-secrets" target="_blank" rel="noopener">Israelis Arrested Over Alleged Insider Polymarket Trades on IDF Military Secrets</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">イスラエルで軍事機密を利用したPolymarketのインサイダー取引疑いで複数人が逮捕・起訴対象に。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357880/crypto-otc-desks-tool-for-tax-evaders-and-money-launderers-j5" target="_blank" rel="noopener">Crypto OTC Desks ‘Tool for Tax Evaders and Money Launderers’: J5</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">国際税務当局J5が暗号資産OTCデスクを脱税・マネロンの温床としてリスク警告。</div>
-                </div>
-                
-                
+
             
+            <div class="category">
+                <h2>Crypto News<span class="region-label">海外</span></h2>
                 
-                <h3>プロジェクト・技術</h3>
+                    
+                    <h3 class="cat-label">市場動向</h3>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://news.bitcoin.com/bitcoin-coils-tight-in-65k-68k-range-next-move-could-shake-the-market/" target="_blank" rel="noopener">Bitcoin Coils Tight in $65K–$68K Range — Next Move Could Shake the Market</a></h3>
+                        <div class="meta">Bitcoin.com News</div>
+                        <div class="digest">BTCは6.5万〜6.8万ドル帯で神経質な推移、ETF流出や弱気シナリオ（5万ドル示唆）もあり「底打ち未確認」との見方が優勢。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://www.coindesk.com/markets/2026/02/13/ark-invest-buys-usd18-million-of-crypto-stocks-including-10th-consecutive-bullish-purchase" target="_blank" rel="noopener">Ark Invest buys $18 million of crypto stocks including 10th consecutive Bullish purchase</a></h3>
+                        <div class="meta">CoinDesk</div>
+                        <div class="digest">ARKの暗号資産関連株買い・強気論が出る一方、ビットコイン・トレジャリーの買い増しはStrategy偏重など需給の偏りも意識。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://news.bitcoin.com/cango-closes-10-5-million-investment-secures-65-million-in-new-equity-commitments/" target="_blank" rel="noopener">Cango Closes $10.5 Million Investment, Secures $65 Million in New Equity Commitments</a></h3>
+                        <div class="meta">Bitcoin.com News</div>
+                        <div class="digest">マイニング企業Cangoが資金調達・追加出資枠を確保し、資本市場からの支援継続が示された。</div>
+                    </div>
+                    
+                    
                 
-                <div class="news-item">
-                    <h3><a href="https://news.bitcoin.com/taurus-and-blockdaemon-partner-to-advance-institutional-crypto-staking-solutions/" target="_blank" rel="noopener">Taurus and Blockdaemon Partner to Advance Institutional Crypto Staking Solutions</a></h3>
-                    <div class="meta">Bitcoin.com News</div>
-                    <div class="digest">TaurusとBlockdaemonが提携し、銀行・機関向けに安全な暗号資産ステーキング基盤を提供へ。</div>
-                </div>
+                    
+                    <h3 class="cat-label">規制・政策</h3>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://www.coindesk.com/policy/2026/02/12/crypto-execs-armstrong-garlinghouse-among-many-named-to-u-s-cftc-advisory-group" target="_blank" rel="noopener">Crypto execs Armstrong, Garlinghouse among many named to U.S. CFTC advisory group</a></h3>
+                        <div class="meta">CoinDesk</div>
+                        <div class="digest">米CFTCが暗号資産大手経営陣を諮問グループに迎え、市場構造・規制設計の議論が加速。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://www.coindesk.com/policy/2026/02/12/key-senate-democrat-wants-u-s-crypto-bill-to-move-and-sec-chief-reveals-danger-of-defeat" target="_blank" rel="noopener">Key Senate Democrat wants U.S. crypto bill to move, and SEC chief reveals danger of defeat</a></h3>
+                        <div class="meta">CoinDesk</div>
+                        <div class="digest">米議会で暗号資産法案前進の機運が出る一方、SECは予測市場の一部管轄を示唆し、Kalshi/Polymarket周辺の規制論点も浮上。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://news.bitcoin.com/banks-beat-payment-providers-in-argentina-labor-reform-bans-payments-to-digital-wallets/" target="_blank" rel="noopener">Banks Beat Payment Providers in Argentina: Labor Reform Bans Payments to Digital Wallets</a></h3>
+                        <div class="meta">Bitcoin.com News</div>
+                        <div class="digest">ブラジルの国家BTC保有法案再提出やアルゼンチン労働法の決済制約、ポンジ事件の量刑、政治資金・詐欺/OTCの取り締まり強化が報じられた。</div>
+                    </div>
+                    
+                    
                 
-                <div class="news-item">
-                    <h3><a href="https://news.bitcoin.com/sony-innovation-fund-backs-yoake-to-scale-verified-fandom-infrastructure/" target="_blank" rel="noopener">Sony Innovation Fund Backs Yoake to Scale Verified Fandom Infrastructure</a></h3>
-                    <div class="meta">Bitcoin.com News</div>
-                    <div class="digest">Sony Innovation FundがYoakeに出資し、ブロックチェーンで検証可能なファンダム基盤の拡大を支援。</div>
-                </div>
+                    
+                    <h3 class="cat-label">プロジェクト・技術</h3>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://news.bitcoin.com/taurus-and-blockdaemon-partner-to-advance-institutional-crypto-staking-solutions/" target="_blank" rel="noopener">Taurus and Blockdaemon Partner to Advance Institutional Crypto Staking Solutions</a></h3>
+                        <div class="meta">Bitcoin.com News</div>
+                        <div class="digest">機関向けステーキング（Taurus×Blockdaemon）やAaveの収益配分提案、ソラナのアプリ層重視戦略など主要プロトコルの進化が進む。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://news.bitcoin.com/sony-innovation-fund-backs-yoake-to-scale-verified-fandom-infrastructure/" target="_blank" rel="noopener">Sony Innovation Fund Backs Yoake to Scale Verified Fandom Infrastructure</a></h3>
+                        <div class="meta">Bitcoin.com News</div>
+                        <div class="digest">ソニー系ファンドのYoake投資、ETHトレジャリー企業の事業モデル提示、ジェットエンジンのトークン化などRWA/トークン化領域が拡大。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://news.bitcoin.com/stablecoins-expected-to-lead-crypto-casino-and-prediction-market-payments-this-year/" target="_blank" rel="noopener">Stablecoins Expected to Lead Crypto Casino and Prediction Market Payments This Year</a></h3>
+                        <div class="meta">Bitcoin.com News</div>
+                        <div class="digest">ステーブルコインの決済利用（カジノ/予測市場）やアジアの規制整備・機関需要の高まりが継続テーマとして示された。</div>
+                    </div>
+                    
+                    
                 
-                <div class="news-item">
-                    <h3><a href="https://news.bitcoin.com/stablecoins-expected-to-lead-crypto-casino-and-prediction-market-payments-this-year/" target="_blank" rel="noopener">Stablecoins Expected to Lead Crypto Casino and Prediction Market Payments This Year</a></h3>
-                    <div class="meta">Bitcoin.com News</div>
-                    <div class="digest">暗号資産カジノや予測市場の決済はステーブルコイン主導が続く見通しで、USDT/USDCの優位を示唆。</div>
-                </div>
+                    
+                    <h3 class="cat-label">取引所・サービス</h3>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://news.bitcoin.com/coinbase-q4-softer-trading-strong-subscriptions-bigger-bitcoin-stack/" target="_blank" rel="noopener">Coinbase Q4: Softer Trading, Strong Subscriptions, Bigger Bitcoin Stack</a></h3>
+                        <div class="meta">Bitcoin.com News</div>
+                        <div class="digest">コインベースはQ4で取引収益鈍化と投資評価損が響き、アナリストが目標株価を引き下げる動きが広がった。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://www.coindesk.com/coindesk-indices/2026/02/11/crypto-for-advisors-the-digital-assets-exchange-traded-product-landscape" target="_blank" rel="noopener">Crypto for Advisors: The digital assets exchange-traded product landscape</a></h3>
+                        <div class="meta">CoinDesk</div>
+                        <div class="digest">デジタル資産ETPの概観や「主要取引所」比較記事など、投資商品・取引所選別の情報提供が増加。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://www.coindesk.com/markets/2026/02/13/ark-invest-buys-usd18-million-of-crypto-stocks-including-10th-consecutive-bullish-purchase" target="_blank" rel="noopener">Ark Invest buys $18 million of crypto stocks including 10th consecutive Bullish purchase</a></h3>
+                        <div class="meta">CoinDesk</div>
+                        <div class="digest">ARKが暗号資産関連株を買い増しし、上場株経由の暗号資産エクスポージャー需要も継続。</div>
+                    </div>
+                    
+                    
                 
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/business/2026/02/12/sharplink-s-lubin-and-chalom-make-their-case-for-ether-dats-as-prices-plunge" target="_blank" rel="noopener">Sharplink&#39;s Lubin and Chalom make their case for ether DATs as prices plunge</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">SharpLinkのLubin氏らがETH連動型の企業財務戦略（ether DATs）の意義を下落局面でも主張。</div>
-                </div>
+                    
+                    <h3 class="cat-label">その他</h3>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://news.bitcoin.com/taco-tech-tuesday-sells-out-at-ethdenver-partners-with-bitcoin-com/" target="_blank" rel="noopener">Taco Tech Tuesday Sells Out at ETHDenver, Partners with Bitcoin.com</a></h3>
+                        <div class="meta">Bitcoin.com News</div>
+                        <div class="digest">ETHDenver関連イベントの盛況やConsensus Hong Kongの総括など、コミュニティ/産業イベントの情報が拡散。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://www.coindesk.com/business/2026/02/12/only-5-of-companies-see-ai-hitting-their-bottom-line-mckinsey-china-chairman-tells-consensus" target="_blank" rel="noopener">Only 5% of companies see AI improving profit, McKinsey China chairman tells Consensus</a></h3>
+                        <div class="meta">CoinDesk</div>
+                        <div class="digest">AIの収益貢献や雇用代替、チャットボットの安全性・誘導問題など、AI関連論点が市場心理にも影響しうるテーマとして浮上。</div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3><a href="https://decrypt.co/357966/crypto-flows-suspected-human-trafficking-services-chainalysis" target="_blank" rel="noopener">Crypto Flows to Suspected Human Trafficking Services Jump 85% in 2025: Chainalysis</a></h3>
+                        <div class="meta">Decrypt</div>
+                        <div class="digest">人身売買関連と疑われるサービスへの暗号資産フロー増加が報告され、コンプライアンス強化の必要性が再確認された。</div>
+                    </div>
+                    
+                    
                 
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/business/2026/02/12/aave-labs-proposes-aave-will-win-plan-to-send-100-of-product-revenue-to-dao" target="_blank" rel="noopener">Aave labs proposes ‘Aave Will Win’ plan to send 100% of product revenue to DAO</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">Aave Labsがプロダクト収益の100%をDAOへ送る提案を提示し、ガバナンスと価値還元の強化を狙う。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/business/2026/02/12/solana-s-og-builders-say-the-next-chapter-is-bigger-than-memecoins-and-bigger-than-ftx" target="_blank" rel="noopener">From FTX debris to global finance: Solana’s 2026 plan is all about the application layer</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">Solanaは次の成長をミームからアプリ層へ移し、グローバル金融向け実需アプリを重視する方針を示す。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/business/2026/02/12/ethzilla-starts-offering-tokenized-jet-engine-leasing-exposure-through-newly-launched-token" target="_blank" rel="noopener">ETHZilla prepares for takeoff: How you can now own a piece of a jet engine for just $100</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">ETHZillaが航空機エンジンのリース収益への小口投資をトークン化し、実資産トークン化を推進。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/business/2026/02/12/asia-leapfrogging-the-west-in-onchain-retail-use-as-regional-hubs-lead-on-stablecoin-rules" target="_blank" rel="noopener">Asia leapfrogging the West in onchain retail use as regional hubs lead on stablecoin rules</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">アジアが小売オンチェーン利用で先行し、ステーブルコイン規則整備も地域ハブが牽引していると分析。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/business/2026/02/12/crypto-industry-experts-at-consensus-see-asian-institutions-pivot-toward-stablecoins" target="_blank" rel="noopener">Crypto industry experts at Consensus see Asian institutions pivot toward stablecoins</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">Consensusでアジアの機関投資家がステーブルコインへ軸足を移しているとの見方が共有された。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/business/2026/02/12/gate-ceo-and-founder-lin-han-says-banks-have-lost-the-war-against-stablecoins" target="_blank" rel="noopener">Gate CEO and founder Lin Han says banks have lost the war against stablecoins</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">Gate創業者が「銀行はステーブルコインとの戦いに負けた」と述べ、決済の主戦場変化を主張。</div>
-                </div>
-                
-                
-            
-                
-                <h3>取引所・サービス</h3>
-                
-                <div class="news-item">
-                    <h3><a href="https://news.bitcoin.com/coinbase-q4-softer-trading-strong-subscriptions-bigger-bitcoin-stack/" target="_blank" rel="noopener">Coinbase Q4: Softer Trading, Strong Subscriptions, Bigger Bitcoin Stack</a></h3>
-                    <div class="meta">Bitcoin.com News</div>
-                    <div class="digest">Coinbaseは2025年通期収益と2026年の拡大計画を示しつつ、Q4は投資評価減などで内容が弱含み。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/markets/2026/02/13/wall-street-analysts-cut-coinbase-price-targets-following-q4-earnings-miss" target="_blank" rel="noopener">Wall Street analysts cut Coinbase price targets following Q4 earnings miss</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">Coinbaseの決算未達を受け、ウォール街アナリストが目標株価を引き下げた。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/markets/2026/02/12/coinbase-misses-q4-estimates-as-transaction-revenue-falls-below-usd1-billion" target="_blank" rel="noopener">Coinbase misses Q4 estimates as transaction revenue falls below $1 billion</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">CoinbaseはQ4の取引収益が10億ドルを下回り、予想未達として市場の失望を招いた。</div>
-                </div>
-                
-                
-            
-                
-                <h3>その他</h3>
-                
-                <div class="news-item">
-                    <h3><a href="https://news.bitcoin.com/taco-tech-tuesday-sells-out-at-ethdenver-partners-with-bitcoin-com/" target="_blank" rel="noopener">Taco Tech Tuesday Sells Out at ETHDenver, Partners with Bitcoin.com</a></h3>
-                    <div class="meta">Bitcoin.com News</div>
-                    <div class="digest">ETHDenverのネットワーキングイベントが完売し、Web3コミュニティの参加熱が継続していると報告。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://news.bitcoin.com/best-crypto-exchanges-2026-so-far-february/" target="_blank" rel="noopener">Best Crypto Exchanges of 2026 So Far – February Market Leaders</a></h3>
-                    <div class="meta">Bitcoin.com News</div>
-                    <div class="digest">2026年2月時点の主要暗号資産取引所ランキング記事（アフィリエイト要素あり）が掲載された。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://news.bitcoin.com/cango-closes-10-5-million-investment-secures-65-million-in-new-equity-commitments/" target="_blank" rel="noopener">Cango Closes $10.5 Million Investment, Secures $65 Million in New Equity Commitments</a></h3>
-                    <div class="meta">Bitcoin.com News</div>
-                    <div class="digest">マイニング企業Cangoが投資受け入れと追加の新株コミットメントを確保し、資本基盤を強化。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/business/2026/02/13/recapping-consensus-hong-kong" target="_blank" rel="noopener">Recapping Consensus Hong Kong</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">Consensus Hong Kongの総括として、主要テーマや議論のポイントを振り返った。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/coindesk-indices/2026/02/11/crypto-for-advisors-the-digital-assets-exchange-traded-product-landscape" target="_blank" rel="noopener">Crypto for Advisors: The digital assets exchange-traded product landscape</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">デジタル資産の上場商品（ETP）環境をアドバイザー向けに整理し、商品選択の視点を提示。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/business/2026/02/12/crypto-isn-t-a-luxury-in-pakistan-it-s-a-ladder-for-the-masses" target="_blank" rel="noopener">A ladder for the masses: Pakistan’s Bilal Bin Saqib says crypto is a necessity, not a luxury</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">パキスタンでは暗号資産が贅沢品ではなく生活上の「機会の梯子」として必要性が高いとの論考。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://www.coindesk.com/business/2026/02/12/only-5-of-companies-see-ai-hitting-their-bottom-line-mckinsey-china-chairman-tells-consensus" target="_blank" rel="noopener">Only 5% of companies see AI improving profit, McKinsey China chairman tells Consensus</a></h3>
-                    <div class="meta">CoinDesk</div>
-                    <div class="digest">McKinsey幹部がAIで利益改善を実感する企業は少数と述べ、期待と現実のギャップを指摘。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357997/elon-musk-accuses-anthropic-ai-of-being-misanthropic-after-30b-funding-round" target="_blank" rel="noopener">Elon Musk Accuses Anthropic AI of Being &#39;Misanthropic&#39; After $30B Funding Round</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">イーロン・マスク氏がAnthropicの大型資金調達を受け対立を強め、AI業界の競争激化を映す。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357967/microsoft-ai-chief-two-years-ai-to-automate-white-collar-jobs" target="_blank" rel="noopener">Microsoft AI Chief Sets Two-Year Timeline for AI to Automate Most White Collar Jobs</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">MicrosoftのAI責任者が、ホワイトカラー業務の多くが2年程度で自動化され得るとの見通しを示した。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357940/summarize-ai-button-brainwashing-chatbot-microsoft" target="_blank" rel="noopener">That &#39;Summarize With AI&#39; Button May Be Brainwashing Your Chatbot, Says Microsoft</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">「AIで要約」ボタン等に隠れた指示がチャットボット記憶を汚染し得るとMicrosoft研究者が警告。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357912/judge-code-not-coder-ai-agent-slams-human-dev-gatekeeping" target="_blank" rel="noopener">&#39;Judge the Code, Not the Coder&#39;: AI Agent Slams Human Developer for Gatekeeping</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">自律AIエージェントがOSS開発で衝突を起こす事例を通じ、協働プロセスの課題を提示。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357925/coinbase-q4-miss-667-million-loss-bitcoin-retreat" target="_blank" rel="noopener">Coinbase Reports Q4 Miss With $667 Million Loss Amid Bitcoin Retreat</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">CoinbaseがBTC下落などを背景にQ4で6.67億ドル損失を計上し、投資評価減の影響が示された。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357907/ethereum-treasury-ethzilla-pivots-jet-engine-leasing-eth-sinks" target="_blank" rel="noopener">Ethereum Treasury Firm ETHZilla Pivots to Jet Engine Lease Tokenization as ETH Sinks</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">ETH下落局面でETHZillaがジェットエンジン・リースのトークン化へピボットし収益機会を模索。</div>
-                </div>
-                
-                <div class="news-item">
-                    <h3><a href="https://decrypt.co/357870/ai-chatbots-giving-dangerous-medical-advice-oxford-study-warns" target="_blank" rel="noopener">AI Chatbots Giving ‘Dangerous’ Medical Advice, Oxford Study Warns</a></h3>
-                    <div class="meta">Decrypt</div>
-                    <div class="digest">オックスフォード研究が医療分野でのAIチャットボットの危険な助言リスクを指摘し、利用指針が課題に。</div>
-                </div>
-                
-                
+            </div>
             
         </div>
         
