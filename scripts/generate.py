@@ -174,8 +174,9 @@ def fetch_weather():
 
 
 def fetch_stock_indices():
-    """Fetch stock index data via yfinance."""
+    """Fetch stock index data via yfinance. Returns (indices, fetched_at_str)."""
     print("Fetching stock indices...")
+    fetched_at = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
     indices = []
 
     for idx_info in STOCK_INDICES:
@@ -206,7 +207,7 @@ def fetch_stock_indices():
             print(f"  Error fetching {idx_info['name']}: {e}")
 
     print(f"  Stock indices fetched: {len(indices)}")
-    return indices
+    return indices, fetched_at
 
 
 def fetch_stock_news():
@@ -253,8 +254,9 @@ def fetch_stock_news():
 
 
 def fetch_crypto_prices():
-    """Fetch crypto prices from CoinGecko API."""
+    """Fetch crypto prices from CoinGecko API. Returns (prices, fetched_at_str)."""
     print("Fetching crypto prices...")
+    fetched_at = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
     url = (
         "https://api.coingecko.com/api/v3/simple/price"
         f"?ids={CRYPTO_IDS}"
@@ -268,7 +270,7 @@ def fetch_crypto_prices():
         data = resp.json()
     except Exception as e:
         print(f"  Error fetching crypto prices: {e}")
-        return []
+        return [], fetched_at
 
     prices = []
     for crypto_id, display_name in CRYPTO_DISPLAY_NAMES.items():
@@ -283,7 +285,7 @@ def fetch_crypto_prices():
             })
 
     print(f"  Crypto prices fetched: {len(prices)}")
-    return prices
+    return prices, fetched_at
 
 
 def fetch_articles(feeds):
@@ -436,7 +438,8 @@ def summarize_with_openai(domestic_articles, international_articles, stock_news,
 - indexはニュース一覧のID（D1, D2, I1, I2...）に対応させてください
 - digestは各記事の要点を1行で簡潔に日本語で書いてください
 - market_summaryは株式市場と暗号資産市場の両方を俯瞰してまとめてください
-- stock_news_summaryは主要な株式ニュースを最大5件まで要約してください
+- stock_news_summaryは主要な株式ニュースを最大3件に厳選して要約してください
+- 各カテゴリに分類するニュースは最も重要な最大3件に絞ってください（カテゴリあたり3件以下）
 - price_analysisでは、ニュースと価格変動の因果関係を分析してください
 - JSON以外の出力は禁止です
 """
@@ -538,8 +541,9 @@ def get_archive_links():
     return links
 
 
-def generate_html(date_str, weather, stock_indices, crypto_prices,
-                  market_summary, stock_news_summary, domestic_categories,
+def generate_html(date_str, weather, stock_indices, stock_fetched_at,
+                  crypto_prices, crypto_fetched_at, market_summary,
+                  stock_news_summary, domestic_categories,
                   international_categories, price_analysis, archive_links):
     """Render HTML from Jinja2 template."""
     env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), autoescape=True)
@@ -549,7 +553,9 @@ def generate_html(date_str, weather, stock_indices, crypto_prices,
         date=date_str,
         weather=weather,
         stock_indices=stock_indices,
+        stock_fetched_at=stock_fetched_at,
         crypto_prices=crypto_prices,
+        crypto_fetched_at=crypto_fetched_at,
         market_summary=market_summary,
         stock_news_summary=stock_news_summary,
         domestic_categories=domestic_categories,
@@ -572,13 +578,13 @@ def main():
     weather = fetch_weather()
 
     # 2. Fetch stock indices
-    stock_indices = fetch_stock_indices()
+    stock_indices, stock_fetched_at = fetch_stock_indices()
 
     # 3. Fetch stock news
     stock_news = fetch_stock_news()
 
     # 4. Fetch crypto prices
-    crypto_prices = fetch_crypto_prices()
+    crypto_prices, crypto_fetched_at = fetch_crypto_prices()
 
     # 5. Fetch crypto articles (domestic / international)
     print("Fetching domestic crypto news...")
@@ -596,11 +602,13 @@ def main():
 
     # 7. Generate HTML
     archive_links = get_archive_links()
-    html = generate_html(
+    render_kwargs = dict(
         date_str=date_str,
         weather=weather,
         stock_indices=stock_indices,
+        stock_fetched_at=stock_fetched_at,
         crypto_prices=crypto_prices,
+        crypto_fetched_at=crypto_fetched_at,
         market_summary=result["market_summary"],
         stock_news_summary=result["stock_news_summary"],
         domestic_categories=result["domestic_categories"],
@@ -608,6 +616,7 @@ def main():
         price_analysis=result["price_analysis"],
         archive_links=archive_links,
     )
+    html = generate_html(**render_kwargs)
 
     # 8. Write archive file
     archive_file = ARCHIVE_DIR / f"{date_str}.html"
@@ -616,18 +625,8 @@ def main():
 
     # 9. Update archive links (now includes today) and regenerate index
     archive_links = get_archive_links()
-    index_html = generate_html(
-        date_str=date_str,
-        weather=weather,
-        stock_indices=stock_indices,
-        crypto_prices=crypto_prices,
-        market_summary=result["market_summary"],
-        stock_news_summary=result["stock_news_summary"],
-        domestic_categories=result["domestic_categories"],
-        international_categories=result["international_categories"],
-        price_analysis=result["price_analysis"],
-        archive_links=archive_links,
-    )
+    render_kwargs["archive_links"] = archive_links
+    index_html = generate_html(**render_kwargs)
     index_file = DOCS_DIR / "index.html"
     index_file.write_text(index_html, encoding="utf-8")
     print(f"Index saved: {index_file}")
