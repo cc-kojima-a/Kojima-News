@@ -36,6 +36,50 @@
             font-size: 0.95rem;
             color: #8b949e;
         }
+
+        /* Weather */
+        .weather-section {
+            margin-bottom: 28px;
+        }
+        .weather-section h2 {
+            font-size: 1.1rem;
+            color: #58a6ff;
+            margin-bottom: 12px;
+        }
+        .weather-cards {
+            display: flex;
+            gap: 12px;
+        }
+        .weather-card {
+            flex: 1;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .weather-card .location {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #f0f6fc;
+            margin-bottom: 8px;
+        }
+        .weather-card .weather-main {
+            font-size: 1.3rem;
+            color: #58a6ff;
+            margin-bottom: 4px;
+        }
+        .weather-card .temp {
+            font-size: 1.1rem;
+            color: #c9d1d9;
+            margin-bottom: 8px;
+        }
+        .weather-card .weather-detail {
+            font-size: 0.82rem;
+            color: #8b949e;
+            line-height: 1.6;
+        }
+
+        /* Summary */
         .summary {
             background-color: #161b22;
             border: 1px solid #30363d;
@@ -52,6 +96,52 @@
             color: #c9d1d9;
             font-size: 0.95rem;
         }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+        .data-table th {
+            background-color: #161b22;
+            color: #8b949e;
+            font-weight: 600;
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 2px solid #30363d;
+        }
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #21262d;
+        }
+        .data-table tr:hover {
+            background-color: #161b22;
+        }
+        .positive {
+            color: #3fb950;
+        }
+        .negative {
+            color: #f85149;
+        }
+        .text-right {
+            text-align: right;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 32px;
+        }
+        .section h2 {
+            font-size: 1.15rem;
+            color: #f0f6fc;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #21262d;
+            margin-bottom: 14px;
+        }
+
+        /* Category */
         .category {
             margin-bottom: 28px;
         }
@@ -62,6 +152,13 @@
             border-bottom: 1px solid #21262d;
             margin-bottom: 14px;
         }
+        .category h3 {
+            font-size: 1.05rem;
+            color: #8b949e;
+            margin-bottom: 10px;
+        }
+
+        /* News items */
         .news-item {
             background-color: #161b22;
             border: 1px solid #30363d;
@@ -89,6 +186,40 @@
             font-size: 0.9rem;
             color: #b1bac4;
         }
+
+        /* Analysis box */
+        .analysis-box {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-left: 3px solid #58a6ff;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin-top: 12px;
+            margin-bottom: 16px;
+        }
+        .analysis-box h3 {
+            font-size: 0.95rem;
+            color: #58a6ff;
+            margin-bottom: 8px;
+        }
+        .analysis-box p {
+            font-size: 0.9rem;
+            color: #b1bac4;
+        }
+
+        /* Region label */
+        .region-label {
+            display: inline-block;
+            background-color: #21262d;
+            color: #8b949e;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        /* Archive */
         .archive {
             margin-top: 40px;
             padding-top: 20px;
@@ -127,43 +258,171 @@
             padding: 40px 0;
             font-size: 0.95rem;
         }
+
+        @media (max-width: 600px) {
+            .weather-cards {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- 1. Header -->
         <header>
             <h1>Kojima News</h1>
             <div class="date">{{ date }}</div>
         </header>
 
-        {% if summary %}
-        <div class="summary">
-            <h2>Market Summary</h2>
-            <p>{{ summary }}</p>
+        <!-- 2. Weather -->
+        {% if weather %}
+        <div class="weather-section">
+            <h2>Weather</h2>
+            <div class="weather-cards">
+                {% for w in weather %}
+                <div class="weather-card">
+                    <div class="location">{{ w.name }}</div>
+                    <div class="weather-main">{{ w.daily_weather }}</div>
+                    <div class="temp">{{ w.temperature }}°C</div>
+                    <div class="weather-detail">
+                        最高 {{ w.temp_max }}°C / 最低 {{ w.temp_min }}°C<br>
+                        湿度 {{ w.humidity }}% / 風速 {{ w.wind_speed }}m/s<br>
+                        降水確率 {{ w.precip_prob }}%
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
         {% endif %}
 
-        {% if categories %}
-            {% for cat_name, articles in categories.items() %}
-                {% if articles %}
-                <div class="category">
-                    <h2>{{ cat_name }}</h2>
-                    {% for article in articles %}
-                    <div class="news-item">
-                        <h3><a href="{{ article.link }}" target="_blank" rel="noopener">{{ article.title }}</a></h3>
-                        <div class="meta">{{ article.source }}</div>
-                        <div class="digest">{{ article.digest }}</div>
-                    </div>
+        <!-- 3. Market Summary -->
+        {% if market_summary %}
+        <div class="summary">
+            <h2>Market Summary</h2>
+            <p>{{ market_summary }}</p>
+        </div>
+        {% endif %}
+
+        <!-- 4. Stock Market -->
+        {% if stock_indices %}
+        <div class="section">
+            <h2>Stock Market</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th class="text-right">Close</th>
+                        <th class="text-right">Change</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for idx in stock_indices %}
+                    <tr>
+                        <td>{{ idx.name }}</td>
+                        <td class="text-right">{{ "{:,.2f}".format(idx.close) }}</td>
+                        <td class="text-right {% if idx.change_pct >= 0 %}positive{% else %}negative{% endif %}">
+                            {% if idx.change_pct >= 0 %}+{% endif %}{{ idx.change_pct }}%
+                        </td>
+                    </tr>
                     {% endfor %}
+                </tbody>
+            </table>
+
+            {% if stock_news_summary %}
+            {% for news in stock_news_summary %}
+            <div class="news-item">
+                <h3>{{ news.title }}</h3>
+                <div class="meta">{{ news.source }}</div>
+                <div class="digest">{{ news.digest }}</div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <!-- 5. Crypto Prices -->
+        {% if crypto_prices %}
+        <div class="section">
+            <h2>Crypto Prices</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Currency</th>
+                        <th class="text-right">USD</th>
+                        <th class="text-right">JPY</th>
+                        <th class="text-right">24h</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in crypto_prices %}
+                    <tr>
+                        <td>{{ p.symbol }}</td>
+                        <td class="text-right">${{ "{:,.2f}".format(p.usd) }}</td>
+                        <td class="text-right">¥{{ "{:,.0f}".format(p.jpy) }}</td>
+                        <td class="text-right {% if p.change_24h >= 0 %}positive{% else %}negative{% endif %}">
+                            {% if p.change_24h >= 0 %}+{% endif %}{{ p.change_24h }}%
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {% if price_analysis %}
+            <div class="analysis-box">
+                <h3>Price Impact Analysis</h3>
+                <p>{{ price_analysis }}</p>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <!-- 6. Domestic Crypto News -->
+        {% set has_domestic = domestic_categories and domestic_categories.values()|map('length')|sum > 0 %}
+        {% if has_domestic %}
+        <div class="category">
+            <h2>Crypto News<span class="region-label">Domestic</span></h2>
+            {% for cat_name, articles in domestic_categories.items() %}
+                {% if articles %}
+                <h3>{{ cat_name }}</h3>
+                {% for article in articles %}
+                <div class="news-item">
+                    <h3><a href="{{ article.link }}" target="_blank" rel="noopener">{{ article.title }}</a></h3>
+                    <div class="meta">{{ article.source }}</div>
+                    <div class="digest">{{ article.digest }}</div>
                 </div>
+                {% endfor %}
                 {% endif %}
             {% endfor %}
-        {% else %}
+        </div>
+        {% endif %}
+
+        <!-- 7. International Crypto News -->
+        {% set has_international = international_categories and international_categories.values()|map('length')|sum > 0 %}
+        {% if has_international %}
+        <div class="category">
+            <h2>Crypto News<span class="region-label">International</span></h2>
+            {% for cat_name, articles in international_categories.items() %}
+                {% if articles %}
+                <h3>{{ cat_name }}</h3>
+                {% for article in articles %}
+                <div class="news-item">
+                    <h3><a href="{{ article.link }}" target="_blank" rel="noopener">{{ article.title }}</a></h3>
+                    <div class="meta">{{ article.source }}</div>
+                    <div class="digest">{{ article.digest }}</div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if not has_domestic and not has_international and not stock_indices %}
         <div class="no-news">
             <p>No news for this date.</p>
         </div>
         {% endif %}
 
+        <!-- 8. Archive -->
         {% if archive_links %}
         <div class="archive">
             <h2>Archive</h2>
@@ -175,8 +434,9 @@
         </div>
         {% endif %}
 
+        <!-- 9. Footer -->
         <footer>
-            <p>Auto-generated by Kojima News</p>
+            <p>Auto-generated by Kojima News v2</p>
         </footer>
     </div>
 </body>
