@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Kojima News - Daily crypto news generator.
 
-Fetches RSS feeds, summarizes articles via Claude API,
+Fetches RSS feeds, summarizes articles via OpenAI API,
 and generates HTML pages.
 """
 
@@ -12,8 +12,8 @@ import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-import anthropic
 import feedparser
+import openai
 from jinja2 import Environment, FileSystemLoader
 
 # Timezone
@@ -94,14 +94,14 @@ def fetch_articles():
     return articles
 
 
-def summarize_with_claude(articles):
-    """Send articles to Claude API for summarization and categorization."""
+def summarize_with_openai(articles):
+    """Send articles to OpenAI API for summarization and categorization."""
     if not articles:
         return {"summary": "", "categories": {cat: [] for cat in CATEGORIES}}
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
-        print("Error: ANTHROPIC_API_KEY is not set.")
+        print("Error: OPENAI_API_KEY is not set.")
         sys.exit(1)
 
     # Build article list for prompt
@@ -141,16 +141,19 @@ def summarize_with_claude(articles):
 - JSON以外の出力は禁止です
 """
 
-    client = anthropic.Anthropic(api_key=api_key)
-    print("Calling Claude API for summarization...")
+    client = openai.OpenAI(api_key=api_key)
+    print("Calling OpenAI API for summarization...")
 
-    message = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=4096,
-        messages=[{"role": "user", "content": prompt}],
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        response_format={"type": "json_object"},
+        messages=[
+            {"role": "system", "content": "あなたは暗号資産ニュースの要約アシスタントです。指示されたJSON形式で出力してください。"},
+            {"role": "user", "content": prompt},
+        ],
     )
 
-    response_text = message.content[0].text.strip()
+    response_text = response.choices[0].message.content.strip()
 
     # Extract JSON from response (handle markdown code blocks)
     json_match = re.search(r"```(?:json)?\s*([\s\S]*?)```", response_text)
@@ -160,7 +163,7 @@ def summarize_with_claude(articles):
     try:
         result = json.loads(response_text)
     except json.JSONDecodeError as e:
-        print(f"Error parsing Claude response as JSON: {e}")
+        print(f"Error parsing OpenAI response as JSON: {e}")
         print(f"Response: {response_text[:500]}")
         return {"summary": "", "categories": {cat: [] for cat in CATEGORIES}}
 
@@ -220,8 +223,8 @@ def main():
     # 1. Fetch articles
     articles = fetch_articles()
 
-    # 2. Summarize with Claude
-    result = summarize_with_claude(articles)
+    # 2. Summarize with OpenAI
+    result = summarize_with_openai(articles)
 
     # 3. Generate HTML
     archive_links = get_archive_links()
