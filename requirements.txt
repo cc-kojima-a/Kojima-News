@@ -1,3 +1,5 @@
 feedparser
 openai
 jinja2
+yfinance
+requests
